@@ -1,22 +1,21 @@
 # INSTALACIÓN DE ARCHLINUX CON SOPORTE UEFI #
-# DUAL BOOT CON WINDOWS 10 #
-Ingrese a https://gtronick.github.io/ALIG-DUAL/ para ver la versión web.
+# DUAL BOOT CON WINDOWS #
+Ingrese a https://rootofevilsp.github.io/ALIG-DUAL/ para ver la versión web.
 
 ----
 *Use el comando:*
 
-    elinks https://gtronick.github.io/ALIG-DUAL/
+    elinks https://rootofevilsp.github.io/ALIG-DUAL/
     
 *Para acceder a esta guía desde el Live system de ArchLinux.*
 
 ----
-Sitio web de **GTRONICK**: [http://gtronick.com](http://gtronick.com)    
-Autor: Jaime Quiroga  
-Editado por última vez: **10/07/2019 07:43 AM**
+Autor: Mario Lourido 
+Editado por última vez: **21/08/2020 07:43 AM**
 
 El presente documento no pretende ser una guía completa para la instalación de ArchLinux. Es una guía rápida para acelerar el proceso de instalación. Para más detalles, consultar la [**Wiki**](https://wiki.archlinux.org/index.php/Installation_guide) de ArchLinux, y su guía de instalación.
 
-Pasos preliminares en Windows 10:
+Pasos preliminares en Windows:
 
 1. Asegurarse de que Windows está instalado en modo UEFI
 
@@ -336,5 +335,3 @@ Instalación de ArchLinux:
 50. Si al tratar de iniciar el sistema, arranca Windows 10 sin mostrar el menu de Systemd-boot, lea la wiki, en el siguiente enlace: 
 
     https://wiki.archlinux.org/index.php/Unified_Extensible_Firmware_Interface#Windows_changes_boot_order
-
-Visita mi canal de YouTube para ver la instalación en video y otros tutoriales: [GTRONICK](https://www.youtube.com/user/GTRONICK)
