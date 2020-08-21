@@ -11,51 +11,56 @@ Ingrese a https://rootofevilsp.github.io/ALIG-DUAL/ para ver la versión web.
 
 ----
 Autor: Mario Lourido 
-Editado por última vez: **21/08/2020 07:43 AM**
+Editado por última vez: **21/08/2020 19:00**
 
 El presente documento no pretende ser una guía completa para la instalación de ArchLinux. Es una guía rápida para acelerar el proceso de instalación. Para más detalles, consultar la [**Wiki**](https://wiki.archlinux.org/index.php/Installation_guide) de ArchLinux, y su guía de instalación.
 
 Pasos preliminares en Windows:
 
-1. Asegurarse de que Windows está instalado en modo UEFI
+1. Comprobar que Windows está instalado en modo UEFI
 
-    Arranque Windows    
-    Pulse la tecla Win y "R" para iniciar la ventana Ejecutar    
-    En la ventana Ejecutar teclee "msinfo32" y pulse Enter    
-    En la ventana Información del sistema, seleccione Resumen del sistema en la izquierda y verifique el valor de modo de BIOS en la            derecha.    
-    Si el valor es UEFI, Windows se inicia en modo UEFI-GPT. Si el valor es Heredado('legacy'), Windows se inicia en modo BIOS-MBR.
-    
-2. Asegúrese de deshabilitar el fastboot y el secureboot en la configuración de su BIOS
+    · Arrancar Windows    
+    · Pulsar las teclas Win+R para iniciar la ventana ejecutar  
+    · En la ventana ejecutar teclear "msinfo32" y pulsar Enter  
+    · Se abrirá la ventana "Información del sistema", en ella tendremos que buscar la linea "Modo de BIOS"
+    · Si el valor es UEFI, Windows se ejecutará en modo UEFI-GPT, si el valor es Legacy, se ejecutará en modo BIOS-MBR
+
+2. Descargar y grabar la ISO de ArchLinux en una memoria USB
+
+    · Descargar la imagen ISO de la pagina oficial de ArchLinux
+    · Descargar "Rufus" para grabar la imagen ISO en una memoria USB arrancable
     
 3. Libere como mínimo 10 GB de disco duro para la instalación de ArchLinux
     
-    Arranque Windows    
-    Abra MiPC    
-    Clic derecho sobre Este equipo    
-    Clic en Administrar    
-    En la parte izquierda de la pantalla hacer clic en Administrador de discos    
-    Seleccionar el disco a reducir y hacer clic derecho sobre él    
-    Seleccionar Reducir Volumen    
-    Especificar la cantidad de espacio en MB a reducir    
-    Aceptar y reiniciar    
+    · Arranque Windows
+    · Clic derecho sobre "Este equipo"   
+    · Clic en Administrar
+    · Clic sobre "Administrador de discos" en el menú de la izquierda
+    · Clic derecho sobre la partición a reducir
+    · Seleccionar "Reducir volumen"
+    · Especificar la cantidad de espacio en MB a reducir  
+    · Aceptar y reiniciar
+    
+4. Asegúrese de deshabilitar el fastboot y el secureboot en la configuración de su BIOS
 
 Instalación de ArchLinux:
 
-1. Configurar la BIOS de tu equipo para permitir el arranque desde un dispositivo USB, y el arranque EFI. Si la instalación se está haciendo en VirtualBox, configurar la máquina virtual para permitir el arranque con EFI. Seleccionar la máquina virtual, propiedades, System, Enable EFI.
+1. Configurar la BIOS de tu equipo para permitir el arranque desde un dispositivo USB
 
-2. Iniciar la máquina y seleccionar el disco de instalación
+2. Iniciar la máquina y seleccionar el dispositivo USB de instalación
 
-3. Seleccionar:
-
-        Arch Linux Arch ISO x86_64 UEFI USB
+3. Cuando termine de iniciar estaremos dentro de un terminal "live" lanzado desde el USB, desde aquí instalaremos ArchLinux
     
-4. Cuando termine de iniciar, cargar la distribución de teclado correspondiente. Por defecto, la distribución es US (Inglés). Para listar las distribuciones de teclado disponibles usar:
+4. Lo primero que haremos será establecer la distribución de teclado correspondiente. Por defecto la distribución es US.
 
+    *Para listar las distribuciones de teclado disponibles usar:*
+    
         ls /usr/share/kbd/keymaps/**/*.map.gz
     
     *Si se desea cargar la distribución para un teclado en español por ejemplo, usar:*
-   
-        loadkeys es        
+    
+        loadkeys es   
+        
 4. Para verificar que estamos en modo UEFI, ejecutar el siguiente comando: 
 
         ls /sys/firmware/efi/efivars
