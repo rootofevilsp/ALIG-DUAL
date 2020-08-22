@@ -1,11 +1,11 @@
 # INSTALACIÓN DE ARCHLINUX CON SOPORTE UEFI #
 # DUAL BOOT CON WINDOWS #
-Ingrese a https://rootofevilsp.github.io/ALIG-DUAL/ para ver la versión web.
+Ingrese a https://rootofevilsp.github.io/GIAL-DUAL/ para ver la versión web.
 
 ----
 *Use el comando:*
 
-    elinks https://rootofevilsp.github.io/ALIG-DUAL/
+    elinks https://rootofevilsp.github.io/GIAL-DUAL/
     
 *Para acceder a esta guía desde el Live system de ArchLinux.*
 
@@ -13,7 +13,7 @@ Ingrese a https://rootofevilsp.github.io/ALIG-DUAL/ para ver la versión web.
 Autor: Mario Lourido 
 Editado por última vez: **21/08/2020 19:00**
 
-El presente documento no pretende ser una guía completa para la instalación de ArchLinux. Es una guía rápida para acelerar el proceso de instalación. Para más detalles, consultar la [**Wiki**](https://wiki.archlinux.org/index.php/Installation_guide) de ArchLinux, y su guía de instalación.
+El presente documento no pretende ser una guía completa para la instalación de ArchLinux. Es una guía rápida para acelerar el proceso de instalación. Para más detalles, consultar la [**Wiki**](https://wiki.archlinux.org/index.php/Installation_guide_(Espa%C3%B1ol)) de ArchLinux, y su guía de instalación.
 
 Pasos preliminares en Windows:
 
