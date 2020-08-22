@@ -10,7 +10,7 @@ Ingrese a https://rootofevilsp.github.io/GIAL-DUAL/ para ver la versión web.
 *Para acceder a esta guía desde el Live system de ArchLinux.*
 
 ----
-Autor: Mario Lourido 
+Autor: Mario Lourido
 Editado por última vez: **21/08/2020 19:00**
 
 El presente documento no pretende ser una guía completa para la instalación de ArchLinux. Es una guía rápida para acelerar el proceso de instalación. Para más detalles, consultar la [**Wiki**](https://wiki.archlinux.org/index.php/Installation_guide_(Espa%C3%B1ol)) de ArchLinux, y su guía de instalación.
@@ -51,7 +51,7 @@ Instalación de ArchLinux:
 
 3. Cuando termine de iniciar estaremos dentro de un terminal "live" lanzado desde el USB, desde aquí instalaremos ArchLinux
     
-4. Lo primero que haremos será establecer la distribución de teclado correspondiente. Por defecto la distribución es US.
+4. Lo primero que haremos será establecer la distribución de teclado correspondiente. Por defecto la distribución es US
 
     *Para listar las distribuciones de teclado disponibles usar:*
     
@@ -61,53 +61,37 @@ Instalación de ArchLinux:
     
         loadkeys es   
         
-4. Para verificar que estamos en modo UEFI, ejecutar el siguiente comando: 
+5. Verificar que estamos en modo UEFI
 
         ls /sys/firmware/efi/efivars
 
     *Si se muestra contenido en la carpeta efivars, quiere decir que arrancamos el sistema correctamente en modo UEFI.*
     
-6. Verificar la conexión a Internet haciendo ping a: archlinux.org (o cualquier otra página o IP)
+6. Verificar la conexión a Internet haciendo ping a una pagina web
 
-        ping archlinux.org
+        ping google.es
 
-7. En caso de tener sólo wifi, usar:
-
-        ip link (Para listar las interfaces. Ubicar la de Wifi, generalmente es wlp2s0)
-        wifi-menu -o wlp2s0
-
-    *Seleccionar la red, e ingresar contraseña.*
-
-8. Activar la sincronización del reloj del sistema con Internet: 
+7. Activar la sincronización del reloj del sistema con Internet
 
         timedatectl set-ntp true
 
-9. Verificar: (opcional)
+    *Para verificar que se haya sincoronizado correctamente usar:*
 
         timedatectl status
 
-10. Identificar los discos: 
+8. Identificar los discos
 
         lsblk
 
-11. Verificar la tabla de particiones: 
+9. Verificar la tabla de particiones
 
         gdisk /dev/sda
 
     *Se debe listar "GPT Present" al final de la lista.*
 
-12. Crear particion swap :
+*A continuación cada uno debe elegir como particionar su disco, yo he reservado 24 GB para instalar ArchLinux y he divido las particiones de las siguiente manera:*
 
-        gdisk /dev/sda
-        n
-        ENTER
-        ENTER
-        +2G
-        8200
-        W
-        Y
-        
-13. Crear particion / :
+10. Crear particion / *10GB*
 
         gdisk /dev/sda
         n
@@ -118,14 +102,25 @@ Instalación de ArchLinux:
         W
         Y
 
-14. Crear partición /home :
+14. Crear partición /home *10GB*
 
         gdisk /dev/sda
         n
         ENTER
         ENTER
-        ENTER
+        +10G
         8302
+        W
+        Y
+
+1. Crear particion swap *4GB*
+
+        gdisk /dev/sda
+        n
+        ENTER
+        ENTER
+        +4G
+        8200
         W
         Y
 
@@ -133,7 +128,7 @@ Instalación de ArchLinux:
 
         lsblk
 
-16. Formatear particion swap :
+16. Formatear particion swap
 
         mkswap /dev/sda5
 
