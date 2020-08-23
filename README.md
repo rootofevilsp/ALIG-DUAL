@@ -124,7 +124,7 @@ Instalación de ArchLinux:
         W
         Y
 
-    *En cada uno de los tres pasos anteriores te puedes ahorrar las dos ultimas ordenes "W"-"Y", y puedes crear todas las particiones de golpe y al final ejecutar esas dos ordenes para grabar todo de golpe*
+    *En cada uno de los tres pasos anteriores te puedes ahorrar las dos ultimas ordenes "W"-"Y", puedes crear todas las particiones de de forma consecutiva y al final ejecutar esas dos ordenes para grabar todo de golpe*
 
 13. Verificar
 
