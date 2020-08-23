@@ -89,7 +89,7 @@ Instalación de ArchLinux:
 
     *Se debe listar "GPT Present" al final de la lista.*
 
-*A continuación cada uno debe elegir como particionar su disco, yo he reservado 24 GB para instalar ArchLinux y he divido las particiones de las siguiente manera:*
+*A continuación cada uno debe elegir como particionar su disco, yo he reservado 24 GB en el disco "sda" para instalar ArchLinux y he divido las particiones de las siguiente manera:*
 
 10. Crear particion / *10GB*
 
@@ -102,7 +102,7 @@ Instalación de ArchLinux:
         W
         Y
 
-14. Crear partición /home *10GB*
+11. Crear partición /home *10GB*
 
         gdisk /dev/sda
         n
@@ -113,7 +113,7 @@ Instalación de ArchLinux:
         W
         Y
 
-1. Crear particion swap *4GB*
+12. Crear particion swap *4GB*
 
         gdisk /dev/sda
         n
@@ -124,61 +124,60 @@ Instalación de ArchLinux:
         W
         Y
 
-15. Verificar:
+    *En cada uno de los tres pasos anteriores te puedes ahorrar las dos ultimas ordenes "W"-"Y", y puedes crear todas las particiones de golpe y al final ejecutar esas dos ordenes para grabar todo de golpe*
+
+13. Verificar
 
         lsblk
+    
+    *Al realizar esta verificación tendremos ya listados los numeros de las particiones "sdaX", a mi me ha quedado como veremos a continuación:*
 
-16. Formatear particion swap
+14. Formatear particion swap
 
-        mkswap /dev/sda5
+        mkswap /dev/sda7
 
-17. Activar swap :
+15. Activar swap
 
-        swapon /dev/sda5
+        swapon /dev/sda7
 
-18. Formatear particion / :
+16. Formatear particion / y /home
 
+        mkfs.ext4 /dev/sda5
         mkfs.ext4 /dev/sda6
 
-19. Formatear partición /home :
-
-        mkfs.ext4 /dev/sda7
-
-20. Montar particion / en /mnt :
+17. Montar particion / en /mnt
         
-        mount /dev/sda6 /mnt
+        mount /dev/sda5 /mnt
+       
+18. Crear directorio para /home
 
-21. Crear directorio para /boot :
+        mkdir -p /mnt/home
+        
+19. Montar partición /home
+
+        mount /dev/sda6 /mnt/home
+
+20. Crear directorio para /boot
 
         mkdir -p /mnt/boot
 
-22. Montar partición /boot, en este caso es /dev/sda2 pero puede cambiar, se debe usar la partición EFI de Windows:
+21. Montar partición /boot en la partición EFI de Windows
 
         mount /dev/sda2 /mnt/boot
 
-23. Crear directorio para /home :
-
-        mkdir -p /mnt/home
-
-24. Montar partición /home :
-
-        mount /dev/sda7 /mnt/home
-
-25. Instalar los paquetes base:
+22. Instalar los paquetes base
 
         pacstrap /mnt base linux linux-firmware
 
-    *Esto iniciará la instalación de los paquetes base (191.35 MiB aprox.)*
-
-26. Generar fstab:
+23. Generar fstab
 
         genfstab -U /mnt >> /mnt/etc/fstab
 
-27. Verificar:
+24. Verificar
 
         cat /mnt/etc/fstab
 
-28. Iniciar sesión como root en la instalación:
+25. Iniciar sesión como root en la instalación
 
         arch-chroot /mnt /bin/bash
 
