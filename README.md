@@ -181,156 +181,151 @@ Instalación de ArchLinux:
 
         arch-chroot /mnt /bin/bash
 
-29. Generar locales:
+*Llegados a este punto ya estamos dentro de nuestro ArchLinux, pero no reiniciaremos el ordenador porque aun tenemos que configurar ciertas cosas para que al iniciarlo normalmente funcione todo.*
 
-        nano /etc/locale.gen
+26. Ajustar zona horaria
+
+        ln -sf /usr/share/zoneinfo/<ZONA>/<SUB_ZONA> /etc/localtime
+
+    *Donde <ZONA> puede ser Europa y <SUB_ZONA> puede ser Madrid. Puedes consultarlas con el siguiente comando:*
+    
+        ls /usr/share/zoneinfo
+
+27. Ajustar el reloj
+
+        hwclock --systohc
+
+28. Generar locales
+
+        nvim /etc/locale.gen
 
     *Descomentar las líneas de interés quitando el símbolo #, en este caso:*
 
-        en_US.UTF-8 UTF-8
+        es_ES.UTF-8 UTF-8
 
-    *Guardar presionando Ctrl + X, luego Y y finalmente ENTER*
-        
-30. Construir el soporte de idioma: 
+    *Yo utilizo neovim como editor de texto, pero aquí cada uno usará su editor favorito. Para installar neovim:*
+    
+        pacman -S neovim
+    
+29. Construir el soporte de idioma
 
         locale-gen
 
-31. Crear el archivo de configuración correspondiente:
+30. Agregar el idioma al archivo de configuración correspondiente
 
-        nano /etc/locale.conf
+        echo "LANG=es_ES.UTF-8" >> /etc/locale.conf
 
-    *Agregar el siguiente contenido:*
+31. Establecer la distribución de teclado en consola de forma permanente
 
-      LANG=en_US.UTF-8
+        echo "KEYMAP=es" >> /etc/vconsole.conf
 
-    *Guardar presionando Ctrl + X, luego Y y finalmente ENTER*
+32. Establecer el nombre del host
 
-32. Ajustar zona horaria:
+        echo "rootofevil" >> /etc/hostname
 
-        tzselect
-        2 
-        ENTER
-        14 (Número correspondiente a la zona)
-        ENTER
-        1 (Número correspondiente a la subzona)
-        ENTER
+33. Agregar el hostname a /etc/hosts
 
-33. Borrar el archivo de configuración anterior y crear el link simbólico para hacer el cambio permanente:
+        nvim /etc/hosts
+        
+    *Agregar el siguiente contenido, reemplazando rootofevil por tu hostname*
+        
+        127.0.0.1        localhost
+        ::1              localhost
+        127.0.1.1        rootofevil.localdomain	      rootofevil
 
-        rm /etc/localtime
-        ln -s /usr/share/zoneinfo/<ZONA>/<SUB_ZONA> /etc/localtime
-
-    *donde < ZONA > puede ser America y < SUB_ZONA > puede ser Bogota.*
-    
-34. Instalar **systemd-boot**:
+34. Instalar **systemd-boot**
 
         bootctl --path=/boot install
 
-35. Generar archivo de configuración de systemd-boot:
+35. Generar archivo de configuración de systemd-boot
         
-        nano /boot/loader/loader.conf
+        nvim /boot/loader/loader.conf
 
-    Agregar el siguiente contenido:
+    *Agregar el siguiente contenido:*
 
         default arch
-        timeout 3
+        timeout 10
         editor 0
 
-    *Guardar presionando Ctrl + X, luego Y y finalmente ENTER*
+36. Generar el archivo de la entrada por defecto para systemd-boot
 
-36. Generar el archivo de la entrada por defecto para systemd-boot:
+        echo $(blkid -s PARTUUID -o value /dev/sda5) > /boot/loader/entries/arch.conf
 
-        echo $(blkid -s PARTUUID -o value /dev/sda6) > /boot/loader/entries/arch.conf
-
-    Esto generará un archivo de nombre arch.conf en la ruta especificada, con un contenido similar a:
+    *Esto generará un archivo de nombre arch.conf en la ruta especificada, con un contenido similar a:*
 
         14420948-2cea-4de7-b042-40f67c618660
 
-37. Abrir el archivo generado:
+37. Abrir el archivo generado
 
-        nano /boot/loader/entries/arch.conf
+        nvim /boot/loader/entries/arch.conf
 
-    Se debe agregar lo siguiente, de manera que el serial generado, quede después de PARTUUID y antes de rw, como sigue:
+    *Se debe agregar lo siguiente, de manera que el serial generado, quede después de PARTUUID y antes de rw:*
 
         title ArchLinux
         linux /vmlinuz-linux
         initrd /initramfs-linux.img
         options root=PARTUUID=14420948-2cea-4de7-b042-40f67c618660 rw
 
-    *Guardar presionando Ctrl + X, luego Y y finalmente ENTER*
-
-38. Configuración de red:
-
-    *Agregar el nombre del host a /etc/hostname, por ejemplo:*
-
-        echo gtronick > /etc/hostname
-
-39. Agregar el hostname a /etc/hosts, por ejemplo:
-
-        nano /etc/hosts
-        
-    *Agregar el siguiente contenido, reemplazando gtronick por tu hostname*
-        
-        127.0.0.1        localhost.localdomain        localhost
-        ::1              localhost.localdomain        localhost
-        127.0.1.1        gtronick.localdomain	      gtronick
-
-40. Instalar paquetes para el controlador WiFi:
-
-        pacman -S iw wpa_supplicant dialog elinks vim
-
-41. Ajustar contraseña para  root:
+38. Establecer contraseña para root
 
         passwd
 
     *Ingresar nueva contraseña*   
     *Repetir la contraseña*
 
+39. Crear un nuevo usuario
 
-42. Salir de la sesión, desmontar particiones:
+        useradd -m rootofevil
+        
+    *Reemplazando rootofevil por tu nombre de usuario*
+        
+40. Asignar una contraseña al nuevo usuario creado
+
+        passwd rootofevil
+
+41. Instalar sudo
+
+        pacman -S sudo
+
+42. Dar permisos de uso para Sudo al nuevo usuario
+
+        nvim /etc/sudoers
+        
+    *Buscar la línea  ROOT  ALL=(ALL) ALL y justo debajo de esta, agregar nuestro usuario:*
+        
+        rootofevil   ALL=(ALL) ALL
+    
+    *También se puede editar este documento con el comando:*
+    
+        visudo
+        
+    *Usando esta forma se edita sudo con el editor vi, que funciona como vim y neovim, dejo los pasos a seguir por si no se está familiarizado con este editor de texto:*
+    *Para editar el documento, presionar la tecla i. Después de esto ya podremos agregar texto normalmente.*
+    *Para guardar los cambios, presionar ESC, luego escribir :wq y finalmente ENTER.*
+
+43. Instalar software de red
+
+        pacman -S networkmanager
+    
+    *Una vez instalado debemos activar el servicio para su ejecución al inicio:*
+    
+        systemctl enable NetworkManager
+        
+    *Respetar las mayusculas en este servicio, si no os dará error*
+
+44. Salir de la sesión y desmontar particiones
 
         exit
         umount -R /mnt
-        umount -R /mnt/boot #si existe o aún está montado
+        
+    *Al desmontar /mnt debería desmontar el resto automaticamente, en el siguiente paso ya indico que hay que comprobar que todo esta desmontado, si no fuera así repetir este comando editando la ruta a desmontar para que no quede ninguna.
 
-43. Antes de reiniciar, verificar que se hayan desmontado todas las particiones de /dev/sda:
+45. Antes de reiniciar, verificar que se hayan desmontado todas las particiones de /dev/sda
 
         lsblk
 
-44. Por último reiniciar con:
+46. Por último reiniciar el sistema
 
         reboot
-  
-45. Después de reiniciar el equipo con ArchLinux instalado, crear un nuevo usuario, por ejemplo:
 
-        useradd -m myUser
-        
-46. Asignar una contraseña al nuevo usuario creado:
-
-        passwd myUser
-        
-47. Dar permisos de uso para Sudo al nuevo usuario:
-
-        visudo
-        
-    *Buscar la línea  ROOT  ALL=(ALL) ALL y justo debajo de esta, agregar nuestro usuario, por ejemplo:*
-        
-        myUser   ALL=(ALL) ALL
-    
-    *Para editar el documento, presionar la tecla i. Después de esto ya podremos agregar texto normalmente.*
-    *Para guardar los cambios, presionar ESC, luego escribir :wq y finalmente ENTER.*
-    
-48. Probar la conexión de red con:
-
-        ping www.archlinux.org
-        
-49. Si se presenta error, habilitar e iniciar el servicio de dhcpcd:
-
-        sudo systemctl enable dhcpcd.service
-        sudo systemctl start dhcpcd.service
-        
-     *Se debe tener en cuenta que, si se va a instalar un entorno gráfico, después de instalado se debe deshabilitar el servicio de dhcpcd para poder hacer uso de un administrador de red con interfaz gráfica como NetworkManager*
-     
-50. Si al tratar de iniciar el sistema, arranca Windows 10 sin mostrar el menu de Systemd-boot, lea la wiki, en el siguiente enlace: 
-
-    https://wiki.archlinux.org/index.php/Unified_Extensible_Firmware_Interface#Windows_changes_boot_order
+*Tras reiniciar nos deberia aparecer el menú de systemd para poder seleccionar que sistema operativo queremos arrancar, por defecto arrancará ArchLinux pasados 10". Esto se puede cambiar facilmente pulsando la letra "d" en el porpio menú de systemd, encima del sistema operativo que queremos que se establezca por defecto.*
