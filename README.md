@@ -19,27 +19,27 @@ Pasos preliminares en Windows:
 
 1. Comprobar que Windows está instalado en modo UEFI
 
-    · Arrancar Windows
-    · Pulsar las teclas Win+R para iniciar la ventana ejecutar
-    · En la ventana ejecutar teclear "msinfo32" y pulsar Enter
-    · Se abrirá la ventana "Información del sistema", en ella tendremos que buscar la linea "Modo de BIOS"
-    · Si el valor es UEFI, Windows se ejecutará en modo UEFI-GPT, si el valor es Legacy, se ejecutará en modo BIOS-MBR
+    - Arrancar Windows
+    - Pulsar las teclas Win+R para iniciar la ventana ejecutar
+    - En la ventana ejecutar teclear "msinfo32" y pulsar Enter
+    - Se abrirá la ventana "Información del sistema", en ella tendremos que buscar la linea "Modo de BIOS"
+    - Si el valor es UEFI, Windows se ejecutará en modo UEFI-GPT, si el valor es Legacy, se ejecutará en modo BIOS-MBR
 
 2. Descargar y grabar la ISO de ArchLinux en una memoria USB
 
-    · Descargar la imagen ISO de la pagina oficial de ArchLinux
-    · Descargar "Rufus" para grabar la imagen ISO en una memoria USB arrancable
+    - Descargar la imagen ISO de la pagina oficial de ArchLinux
+    - Descargar "Rufus" para grabar la imagen ISO en una memoria USB arrancable
     
 3. Libere como mínimo 10 GB de disco duro para la instalación de ArchLinux
     
-    · Arranque Windows
-    · Clic derecho sobre "Este equipo"
-    · Clic en Administrar
-    · Clic sobre "Administrador de discos" en el menú de la izquierda
-    · Clic derecho sobre la partición a reducir
-    · Seleccionar "Reducir volumen"
-    · Especificar la cantidad de espacio en MB a reducir
-    · Aceptar y reiniciar
+    - Arranque Windows
+    - Clic derecho sobre "Este equipo"
+    - Clic en Administrar
+    - Clic sobre "Administrador de discos" en el menú de la izquierda
+    - Clic derecho sobre la partición a reducir
+    - Seleccionar "Reducir volumen"
+    - Especificar la cantidad de espacio en MB a reducir
+    - Aceptar y reiniciar
     
 4. Asegúrese de deshabilitar el fastboot y el secureboot en la configuración de su BIOS
 
