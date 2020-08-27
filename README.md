@@ -19,9 +19,9 @@ Pasos preliminares en Windows:
 
 1. Comprobar que Windows está instalado en modo UEFI
 
-    · Arrancar Windows    
-    · Pulsar las teclas Win+R para iniciar la ventana ejecutar  
-    · En la ventana ejecutar teclear "msinfo32" y pulsar Enter  
+    · Arrancar Windows
+    · Pulsar las teclas Win+R para iniciar la ventana ejecutar
+    · En la ventana ejecutar teclear "msinfo32" y pulsar Enter
     · Se abrirá la ventana "Información del sistema", en ella tendremos que buscar la linea "Modo de BIOS"
     · Si el valor es UEFI, Windows se ejecutará en modo UEFI-GPT, si el valor es Legacy, se ejecutará en modo BIOS-MBR
 
@@ -33,12 +33,12 @@ Pasos preliminares en Windows:
 3. Libere como mínimo 10 GB de disco duro para la instalación de ArchLinux
     
     · Arranque Windows
-    · Clic derecho sobre "Este equipo"   
+    · Clic derecho sobre "Este equipo"
     · Clic en Administrar
     · Clic sobre "Administrador de discos" en el menú de la izquierda
     · Clic derecho sobre la partición a reducir
     · Seleccionar "Reducir volumen"
-    · Especificar la cantidad de espacio en MB a reducir  
+    · Especificar la cantidad de espacio en MB a reducir
     · Aceptar y reiniciar
     
 4. Asegúrese de deshabilitar el fastboot y el secureboot en la configuración de su BIOS
@@ -53,11 +53,11 @@ Instalación de ArchLinux:
     
 4. Lo primero que haremos será establecer la distribución de teclado correspondiente. Por defecto la distribución es US
 
-    *Para listar las distribuciones de teclado disponibles usar:*
+    *Para listar las distribuciones de teclado disponibles:*
     
         ls /usr/share/kbd/keymaps/**/*.map.gz
     
-    *Si se desea cargar la distribución para un teclado en español por ejemplo, usar:*
+    *Si se desea cargar la distribución para un teclado en español:*
     
         loadkeys es   
         
