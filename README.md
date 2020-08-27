@@ -25,10 +25,12 @@ Pasos preliminares en Windows:
     - Se abrirá la ventana "Información del sistema", en ella tendremos que buscar la linea "Modo de BIOS"
     - Si el valor es UEFI, Windows se ejecutará en modo UEFI-GPT, si el valor es Legacy, se ejecutará en modo BIOS-MBR
 
+
 2. Descargar y grabar la ISO de ArchLinux en una memoria USB
 
     - Descargar la imagen ISO de la pagina oficial de ArchLinux
     - Descargar "Rufus" para grabar la imagen ISO en una memoria USB arrancable
+    
     
 3. Libere como mínimo 10 GB de disco duro para la instalación de ArchLinux
     
@@ -40,6 +42,7 @@ Pasos preliminares en Windows:
     - Seleccionar "Reducir volumen"
     - Especificar la cantidad de espacio en MB a reducir
     - Aceptar y reiniciar
+    
     
 4. Asegúrese de deshabilitar el fastboot y el secureboot en la configuración de su BIOS
 
