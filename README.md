@@ -19,11 +19,11 @@ Pasos preliminares en Windows:
 
 1. Comprobar que Windows está instalado en modo UEFI
 
-    · Arrancar Windows. 
-    ·Pulsar las teclas Win+R para iniciar la ventana ejecutar. 
-    ·En la ventana ejecutar teclear "msinfo32" y pulsar Enter. 
-    ·Se abrirá la ventana "Información del sistema", en ella tendremos que buscar la linea "Modo de BIOS". 
-    ·Si el valor es UEFI, Windows se ejecutará en modo UEFI-GPT, si el valor es Legacy, se ejecutará en modo BIOS-MBR. 
+    · Arrancar Windows  
+    · Pulsar las teclas Win+R para iniciar la ventana ejecutar  
+    · En la ventana ejecutar teclear "msinfo32" y pulsar Enter  
+    · Se abrirá la ventana "Información del sistema", en ella tendremos que buscar la linea "Modo de BIOS"  
+    · Si el valor es UEFI, Windows se ejecutará en modo UEFI-GPT, si el valor es Legacy, se ejecutará en modo BIOS-MBR  
 
 2. Descargar y grabar la ISO de ArchLinux en una memoria USB
 
