@@ -1,7 +1,3 @@
-# INSTALACIÓN DE ARCHLINUX CON SOPORTE UEFI #
-# DUAL BOOT CON WINDOWS #
-Ingrese a https://rootofevilsp.github.io/GIAL-DUAL/ para ver la versión web.
-
 ----
 *Use el comando:*
 
@@ -13,7 +9,7 @@ Ingrese a https://rootofevilsp.github.io/GIAL-DUAL/ para ver la versión web.
 Autor: Mario Lourido
 Editado por última vez: **28/08/2020 11:10**
 
-El presente documento no pretende ser una guía completa para la instalación de ArchLinux. Es una guía rápida para acelerar el proceso de instalación. Para más detalles, consultar la [**Wiki**](https://wiki.archlinux.org/index.php/Installation_guide_(Espa%C3%B1ol)) de ArchLinux, y su guía de instalación.
+El presente documento no pretende ser una guía completa para la instalación de ArchLinux. Es una guía rápida para acelerar el proceso de instalación.
 
 Pasos preliminares en Windows:
 
@@ -329,3 +325,5 @@ Instalación de ArchLinux:
         reboot
 
 *Tras reiniciar nos deberia aparecer el menú de systemd para poder seleccionar que sistema operativo queremos arrancar, por defecto arrancará ArchLinux pasados 10". Esto se puede cambiar facilmente pulsando la letra "d" en el porpio menú de systemd, encima del sistema operativo que queremos que se establezca por defecto.*
+
+*Ingrese a https://rootofevilsp.github.io/GIAL-DUAL/ para ver la versión web.*
