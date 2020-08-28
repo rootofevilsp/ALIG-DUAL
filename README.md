@@ -27,19 +27,19 @@ Pasos preliminares en Windows:
 
 2. Descargar y grabar la ISO de ArchLinux en una memoria USB
 
-    ·Descargar la imagen ISO de la pagina oficial de ArchLinux
-    ·Descargar "Rufus" para grabar la imagen ISO en una memoria USB arrancable
+    · Descargar la imagen ISO de la pagina oficial de ArchLinux  
+    · Descargar "Rufus" para grabar la imagen ISO en una memoria USB arrancable  
 
 3. Libere como mínimo 10 GB de disco duro para la instalación de ArchLinux
     
-    ·Arranque Windows
-    ·Clic derecho sobre "Este equipo"
-    ·Clic en Administrar
-    ·Clic sobre "Administrador de discos" en el menú de la izquierda
-    ·Clic derecho sobre la partición a reducir
-    ·Seleccionar "Reducir volumen"
-    ·Especificar la cantidad de espacio en MB a reducir
-    ·Aceptar y reiniciar
+    · Arranque Windows  
+    · Clic derecho sobre "Este equipo"  
+    · Clic en Administrar  
+    · Clic sobre "Administrador de discos" en el menú de la izquierda  
+    · Clic derecho sobre la partición a reducir  
+    · Seleccionar "Reducir volumen"  
+    · Especificar la cantidad de espacio en MB a reducir  
+    · Aceptar y reiniciar  
 
 4. Asegúrese de deshabilitar el fastboot y el secureboot en la configuración de su BIOS
 
