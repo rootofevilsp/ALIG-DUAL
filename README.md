@@ -1,3 +1,8 @@
+Autor: Mario Lourido  
+Editado por última vez: **28/08/2020 11:10**
+
+El presente documento no pretende ser una guía completa para la instalación de ArchLinux. Es una guía personalizada para acelerar el proceso de instalación sin tener que recurrir a varias fuentes de datos diferentes, y así conseguir con muy poco tiempo y esfuerzo una instalación basica, limpia y funcional.
+
 ----
 *Use el comando:*
 
@@ -6,10 +11,6 @@
 *Para acceder a esta guía desde el Live system de ArchLinux.*
 
 ----
-Autor: Mario Lourido  
-Editado por última vez: **28/08/2020 11:10**
-
-El presente documento no pretende ser una guía completa para la instalación de ArchLinux. Es una guía personalizada para acelerar el proceso de instalación sin tener que recurrir a varias fuentes de datos diferentes, y así conseguir con muy poco tiempo y esfuerzo una instalación basica, limpia y funcional.
 
 Pasos preliminares en Windows:
 
