@@ -1,5 +1,3 @@
-Ingrese a https://rootofevilsp.github.io/GIAL-DUAL/ para ver la versión web.
-
 ----
 *Use el comando:*
 
