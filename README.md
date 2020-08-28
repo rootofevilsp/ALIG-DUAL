@@ -1,3 +1,5 @@
+Ingrese a https://rootofevilsp.github.io/GIAL-DUAL/ para ver la versión web.
+
 ----
 *Use el comando:*
 
@@ -325,5 +327,3 @@ Instalación de ArchLinux:
         reboot
 
 *Tras reiniciar nos deberia aparecer el menú de systemd para poder seleccionar que sistema operativo queremos arrancar, por defecto arrancará ArchLinux pasados 10". Esto se puede cambiar facilmente pulsando la letra "d" en el porpio menú de systemd, encima del sistema operativo que queremos que se establezca por defecto.*
-
-*Ingrese a https://rootofevilsp.github.io/GIAL-DUAL/ para ver la versión web.*
