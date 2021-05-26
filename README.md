@@ -6,7 +6,7 @@ El presente documento no pretende ser una guía completa para la instalación de
 ----
 *Use el comando:*
 
-    elinks https://rootofevilsp.github.io/GIAL-DUAL/
+    elinks https://raelyan.github.io/GIAL-DUAL/
     
 *Para acceder a esta guía desde el Live system de ArchLinux.*
 
